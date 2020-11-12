@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtmApi", "AtmApi\AtmApi.csproj", "{6ACBC39C-D1D0-4A40-A1BF-6BA5109FE277}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{0E5EAFB7-F962-41EE-A775-042D576E96A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastucture", "Infrastucture\Infrastucture.csproj", "{F6578D36-E362-4AE2-944E-100D0E4F373D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6ACBC39C-D1D0-4A40-A1BF-6BA5109FE277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ACBC39C-D1D0-4A40-A1BF-6BA5109FE277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ACBC39C-D1D0-4A40-A1BF-6BA5109FE277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ACBC39C-D1D0-4A40-A1BF-6BA5109FE277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E5EAFB7-F962-41EE-A775-042D576E96A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E5EAFB7-F962-41EE-A775-042D576E96A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E5EAFB7-F962-41EE-A775-042D576E96A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E5EAFB7-F962-41EE-A775-042D576E96A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6578D36-E362-4AE2-944E-100D0E4F373D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6578D36-E362-4AE2-944E-100D0E4F373D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6578D36-E362-4AE2-944E-100D0E4F373D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6578D36-E362-4AE2-944E-100D0E4F373D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {069D1E3A-66B2-4D06-9633-92307D37AF4A}
+	EndGlobalSection
+EndGlobal
