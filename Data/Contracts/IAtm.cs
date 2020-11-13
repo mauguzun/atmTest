@@ -1,7 +1,7 @@
 ﻿using Data.Models;
 using System.Collections.Generic;
 
-namespace Data.Repository
+namespace Data.Contracts
 {
     public interface IAtm
     {

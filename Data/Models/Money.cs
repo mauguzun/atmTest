@@ -7,11 +7,11 @@ namespace Data.Models
         /// <summary>
         /// Amount
         /// </summary>
-        public int Amount;
+        public int Amount { get; set; }
 
         /// <summary>
         /// Amount in different paper Notes
         /// </summary>
-        public Dictionary<PaperNote, int> notes;
+        public Dictionary<PaperNote, int> Notes { get; set; } 
     }
 }

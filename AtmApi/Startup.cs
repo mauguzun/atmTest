@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Data.Contracts;
+using Data.Models;
+using Infrastucture.Implementation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,15 +28,54 @@ namespace AtmApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+
+            services.AddSingleton<IAtm, Atm>(serviceProvider =>
+            {
+                return new Atm
+                (
+                    "12",
+                    "iddqd",
+                     new Money()
+                     {
+                         Amount = 215,
+                         Notes = new Dictionary<PaperNote, int>
+                         {
+                             { PaperNote.NoteFive,3},
+                             { PaperNote.NoteTen, 0 },
+                             { PaperNote.NoteFifty, 4 }
+                         }
+                     }
+                )
+                {
+                    Creditcards = new List<CreditCard>()
+                    {
+                       new CreditCard() { CardNumber = "112", Summ = 12},
+                       new CreditCard() { CardNumber = "113", Summ = 2 }
+                  }
+                };
+
+            });
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MyCorsPolicy", builder =>
+                {
+                    builder
+                        .SetIsOriginAllowed(origin => true)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+
+            app.UseExceptionHandler("/error");
+
+            app.UseCors("MyCorsPolicy");
 
             app.UseRouting();
 
@@ -41,7 +83,9 @@ namespace AtmApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "api/{controller}/{action=Index}/{id?}");
             });
         }
     }
