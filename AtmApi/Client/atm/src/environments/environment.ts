@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:333/atm/"
+  apiUrl: "https://atmtest.herokuapp.com/atm/"
 };
 
 /*

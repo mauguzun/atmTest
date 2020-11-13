@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+ 
+    production: false,
+    apiUrl: "https://atmtest.herokuapp.com/atm/"
+
 };
