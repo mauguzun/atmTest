@@ -39,7 +39,7 @@ namespace AtmApi.Controllers
 
         [HttpGet]
         [Route("balance")]
-        public IActionResult CheckBalance() => Ok(JsonConvert.SerializeObject(_atm.GetCardBalance()));
+        public IActionResult CheckBalance() => Ok(JsonConvert.SerializeObject(string.Format("{0:F1}", _atm.GetCardBalance())));
   
 
         [HttpPost]

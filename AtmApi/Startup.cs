@@ -38,11 +38,11 @@ namespace AtmApi
                     "iddqd",
                      new Money()
                      {
-                         Amount = 215,
+                         Amount = 33 * 5 + 30 * 10 + 4 *50 ,
                          Notes = new Dictionary<PaperNote, int>
                          {
-                             { PaperNote.NoteFive,3},
-                             { PaperNote.NoteTen, 0 },
+                             { PaperNote.NoteFive,33},
+                             { PaperNote.NoteTen, 30 },
                              { PaperNote.NoteFifty, 4 }
                          }
                      }
@@ -50,8 +50,8 @@ namespace AtmApi
                 {
                     Creditcards = new List<CreditCard>()
                     {
-                       new CreditCard() { CardNumber = "112", Summ = 12},
-                       new CreditCard() { CardNumber = "113", Summ = 2 }
+                       new CreditCard() { CardNumber = "112", Summ = 100},
+                       new CreditCard() { CardNumber = "113", Summ = 1000 }
                   }
                 };
 

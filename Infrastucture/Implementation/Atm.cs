@@ -126,7 +126,7 @@ namespace Infrastucture.Implementation
                 throw new InfucientCardMoneyException("Not enough money.");
 
             // Calculate available ATM notes
-            var cashBack = new Money() { Amount = 0, Notes = new Dictionary<PaperNote, int>() }; ;
+            var cashBack = new Money() { Amount = amount, Notes = new Dictionary<PaperNote, int>() }; ;
             foreach (var item in _atmBalance.Notes.Where(x => x.Value > 0).OrderByDescending(x => x.Key))
             {
                 int noteAmount = (int)item.Key;
@@ -136,7 +136,7 @@ namespace Infrastucture.Implementation
                     int totalNotes = passibleAmount / noteAmount;
                     cashBack.Notes[item.Key] = totalNotes;
                     amount -= totalNotes * noteAmount;
-                    cashBack.Amount += amount;
+
                 }
             };
 
@@ -153,6 +153,7 @@ namespace Infrastucture.Implementation
 
             Fees.Add(new Fee { CardNumber = _insertedCard.CardNumber, WithdrawalDate = DateTime.Now, WithdrawalFeeAmount = fee });
             return cashBack;
+            
         }
     }
 }

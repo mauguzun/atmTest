@@ -4,6 +4,7 @@ using Data.Exceptions;
 using Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -61,7 +62,7 @@ namespace Tests.AtmApi.Controllers
             var json = ((OkObjectResult)result).Value;
             // Assert
             atm.Verify(x => x.GetCardBalance(), Times.Once);
-            Assert.AreEqual(string.Format("{0:F1}", balance), json);
+            Assert.AreEqual(JsonConvert.SerializeObject(string.Format("{0:F1}", balance)), json);
         }
 
         [Test]

@@ -1,0 +1,102 @@
+<div class="app-content" fullscreen>
+  <div class="container" style="min-height: 100vh;">
+
+
+    <mat-tab-group>
+      <mat-tab label="Insert Card"> 
+        <div style="padding: 10px;">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Insert Card</mat-card-title>           
+               <mat-card-subtitle> aviable 112,113 </mat-card-subtitle>
+  
+              <mat-card-subtitle *ngIf="cardSelected != null ">{{cardSelected}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-form-field class="full-w">
+                <input matInput placeholder="Credit Card Number" required [(ngModel)]="card" />
+      
+                <mat-hint *ngIf="card && card.length <  3">
+                  <small *ngIf="card && card.trim().length < 3">
+                    More then 2 char please
+                  </small>
+      
+                </mat-hint>
+              </mat-form-field>
+              <div style="margin:5px">
+                <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+                  <mat-button-toggle  [disabled]="card == null ||  card.length <  3 "  (change)="setCard()">Set Card</mat-button-toggle>
+                  <mat-button-toggle (change)="returnCard()">Return Card</mat-button-toggle>
+      
+                </mat-button-toggle-group>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        
+        </div>
+     
+      </mat-tab>
+      <mat-tab label="Check Balance Card ">
+        <div style="padding: 10px;">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Check Balance Card </mat-card-title>
+            <mat-card-title *ngIf="balance">{{ balance }} € </mat-card-title>
+            <mat-card-subtitle>Special not hide , for test removed card</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <button mat-raised-button (click)="checkBalance()">Check Balance</button>
+          </mat-card-content>
+        </mat-card>
+    
+        </div>
+        </mat-tab>
+      <mat-tab label="Withdraw"> 
+        <div style="padding: 10px;">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Withdraw</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-form-field class="full-w">
+              <input matInput placeholder="Credit Card Number" required [(ngModel)]="amount" number />
+    
+              <mat-hint *ngIf="amount != null && amount > 1">
+                <small *ngIf="amount != null && amount > 1">
+                  More then 2 char please
+                </small>
+    
+              </mat-hint>
+            </mat-form-field>
+          </mat-card-content>
+          <div style="margin:5px">
+            <button mat-raised-button (click)="withdraw()" *ngIf="amount &&  amount> 1">Withdraw</button>
+    
+          </div>
+          <div *ngIf="cash != null">
+        
+             <mat-list>
+              <mat-list-item *ngFor="let item of cash.Notes | keyvalue">
+                {{item.key }}   <b>   -   {{item.value  }}  </b>  .qt</mat-list-item>
+              <mat-divider></mat-divider>
+              <h4> Total :  {{ cash.Amount }} € </h4>
+            </mat-list>
+          </div>
+        </mat-card>
+      </div>
+      </mat-tab>
+    </mat-tab-group>
+
+
+     
+   
+
+
+
+
+
+
+
+
+
+  </div>
